@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package Vista;
-
+import Controlador.BaseDeDatos;
+import Controlador.OperacionesBaseDeDatos;
+import javax.swing.JOptionPane;
 /**
  *
  * @author lio
@@ -44,6 +46,11 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel2.setText("Password :");
 
         botonInicioSesion.setText("Entrar");
+        botonInicioSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInicioSesionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +94,26 @@ public class VistaLogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioSesionActionPerformed
+        // TODO add your handling code here:
+        String usuario , password;
+        OperacionesBaseDeDatos operacionSQL = new OperacionesBaseDeDatos();
+        
+        
+        usuario = String.valueOf(textUsuario.getText());
+        password = String.valueOf(textPassword.getText());
+        
+        if( operacionSQL.InicioDeSesion(usuario, password) == 1){
+            System.out.println("Inicio de Sesion en VistaLogin");
+            JOptionPane.showMessageDialog(this, "Bienvenido " +usuario, "Éxito!" , WIDTH);
+        }else{
+            System.out.println("Error Inicio de Sesion en VistaLogin");
+            JOptionPane.showMessageDialog(this, "Tu usuario o contraseña son incorrectos", "Error" , WIDTH);
+        }
+    }//GEN-LAST:event_botonInicioSesionActionPerformed
 
     /**
      * @param args the command line arguments
