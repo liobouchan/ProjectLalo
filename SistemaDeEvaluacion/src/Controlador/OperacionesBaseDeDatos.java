@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 /**
  *
  * @author lio
@@ -44,4 +45,54 @@ public class OperacionesBaseDeDatos {
         conexion.Desconectar();
         return 0;
     }
+    
+    public int ValidarMatricula(int matricula){
+        sql = "SELECT Matricula from Alumno";
+        
+        try{
+            statement = comodin.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                if(resultSet.getString("Matricula").equals(matricula)){
+                        return 1;
+                }        
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e);
+            System.out.println("Error en validarMatricula en OperacionesBasesDeDatos");
+        }
+        return 0;
+    }
+    
+   public int RegistrarAlumno(int matricula, String Nombre, String ApellidoPaterno, String ApellidoMaterno){
+        int n;
+        try{
+
+            if(ValidarMatricula(matricula) != 1){
+                sql = "INSERT INTO Alumno (Matricula,Nombre,ApellidoPaterno,ApellidoMaterno)VALUES (?,?,?,?)";
+                PreparedStatement pst = comodin.prepareStatement(sql);
+                pst.setInt(1, matricula);
+                pst.setString(2, Nombre);
+                pst.setString(3, ApellidoPaterno);
+                pst.setString(4, ApellidoMaterno);
+                n = pst.executeUpdate();
+                if( n > 0 ){
+                    //JOptionPane.showMessageDialog(null,"Resgistrado con éxito");
+                    conexion.Desconectar();
+                    return 1;
+                }
+            }else{
+                //JOptionPane.showMessageDialog(null,"El usuario ya existe");
+                conexion.Desconectar();
+                return 0;
+            }
+        }
+        catch(SQLException e){
+            conexion.Desconectar();
+            System.out.println(e);
+        }
+       conexion.Desconectar();
+       return 0;
+    }    
 }
