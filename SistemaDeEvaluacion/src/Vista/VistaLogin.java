@@ -102,13 +102,15 @@ public class VistaLogin extends javax.swing.JFrame {
         String usuario , password;
         OperacionesBaseDeDatos operacionSQL = new OperacionesBaseDeDatos();
         
-        
         usuario = String.valueOf(textUsuario.getText());
         password = String.valueOf(textPassword.getText());
         
         if( operacionSQL.InicioDeSesion(usuario, password) == 1){
             System.out.println("Inicio de Sesion en VistaLogin");
             JOptionPane.showMessageDialog(this, "Bienvenido " +usuario, "Éxito!" , WIDTH);
+            VistaAdministrador administrador = new VistaAdministrador();
+            administrador.setVisible(true);
+            this.setVisible(false);
         }else{
             System.out.println("Error Inicio de Sesion en VistaLogin");
             JOptionPane.showMessageDialog(this, "Tu usuario o contraseña son incorrectos", "Error" , WIDTH);
