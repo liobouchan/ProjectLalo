@@ -170,11 +170,12 @@ public class VistaAdministrador extends javax.swing.JFrame {
         nombre = String.valueOf(textNombre.getText());
         apellidoPaterno = String.valueOf(textApellidoPaterno.getText());
         apellidoMaterno = String.valueOf(textApellidoMaterno.getText());
-        if(operacionSQL.RegistrarAlumno(matricula, nombre, apellidoPaterno, apellidoMaterno) ==1){
-            System.out.println("Entrando al 1 de registrar");
+        
+        if(operacionSQL.RegistrarAlumno(matricula, nombre, apellidoPaterno, apellidoMaterno) == 1){
             JOptionPane.showMessageDialog(this, "Usuario registrado", "Éxito!" , WIDTH);
         }else{
-            System.out.println("Error en registrar en la VIstaAdministrador");
+            System.out.println("Error en registrar en la VistaAdministrador");
+            JOptionPane.showMessageDialog(this, "Puede que la Matricula esté repetida", "Error" , WIDTH);
         }
         
         

@@ -65,7 +65,7 @@ public class OperacionesBaseDeDatos {
         return 0;
     }
     
-   public int RegistrarAlumno(int matricula, String Nombre, String ApellidoPaterno, String ApellidoMaterno){
+    public int RegistrarAlumno(int matricula, String Nombre, String ApellidoPaterno, String ApellidoMaterno){
         int n;
         try{
 
@@ -78,12 +78,10 @@ public class OperacionesBaseDeDatos {
                 pst.setString(4, ApellidoMaterno);
                 n = pst.executeUpdate();
                 if( n > 0 ){
-                    //JOptionPane.showMessageDialog(null,"Resgistrado con éxito");
                     conexion.Desconectar();
                     return 1;
                 }
             }else{
-                //JOptionPane.showMessageDialog(null,"El usuario ya existe");
                 conexion.Desconectar();
                 return 0;
             }
