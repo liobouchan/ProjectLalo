@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-07-2015 a las 09:59:13
+-- Tiempo de generación: 17-07-2015 a las 11:00:09
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -19,6 +19,19 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `Sistema`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Alumno`
+--
+
+CREATE TABLE IF NOT EXISTS `Alumno` (
+  `Matricula` int(11) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
+  `ApellidoPaterno` varchar(50) NOT NULL,
+  `ApellidoMaterno` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -43,6 +56,12 @@ INSERT INTO `Usuario` (`IdUsuario`, `Usuario`, `Password`) VALUES
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `Alumno`
+--
+ALTER TABLE `Alumno`
+ ADD PRIMARY KEY (`Matricula`);
 
 --
 -- Indices de la tabla `Usuario`
