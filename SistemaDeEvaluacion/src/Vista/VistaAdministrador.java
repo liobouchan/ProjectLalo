@@ -29,6 +29,14 @@ public class VistaAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sistema?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        alumnoQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT a FROM Alumno a");
+        alumnoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : alumnoQuery.getResultList();
+        alumnoQuery1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT a FROM Alumno a");
+        alumnoList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : alumnoQuery1.getResultList();
+        alumnoQuery2 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT a FROM Alumno a");
+        alumnoList2 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : alumnoQuery2.getResultList();
+        entityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("Sistema?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -80,7 +88,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textMatricula)
@@ -108,7 +116,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
                     .addComponent(textApellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonRegistrar))
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(335, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Alumno", jPanel2);
@@ -117,11 +125,11 @@ public class VistaAdministrador extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 649, Short.MAX_VALUE)
+            .addGap(0, 641, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGap(0, 446, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Rubricas", jPanel3);
@@ -130,11 +138,11 @@ public class VistaAdministrador extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 649, Short.MAX_VALUE)
+            .addGap(0, 641, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGap(0, 446, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Grupos", jPanel1);
@@ -145,8 +153,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addComponent(jTabbedPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +189,15 @@ public class VistaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.util.List<Vista.Alumno> alumnoList;
+    private java.util.List<Vista.Alumno> alumnoList1;
+    private java.util.List<Vista.Alumno> alumnoList2;
+    private javax.persistence.Query alumnoQuery;
+    private javax.persistence.Query alumnoQuery1;
+    private javax.persistence.Query alumnoQuery2;
     private javax.swing.JButton botonRegistrar;
+    private javax.persistence.EntityManager entityManager;
+    private javax.persistence.EntityManager entityManager0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
